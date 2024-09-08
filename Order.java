@@ -12,14 +12,17 @@ public class Order {
     }
 
     public void placeOrder() {
-        System.out.println("Placing order for " + customer.getName());
-        System.out.println("Products: ");
-        for (Product p : cart.getProducts()) {
-            System.out.println(p);
+        try {
+            System.out.println("Placing order for " + customer.getName());
+            System.out.println("Products: ");
+            for (Product p : cart.getProducts()) {
+                System.out.println(p);
+            }
+            System.out.println("Total price: $" + cart.getTotalPrice());
+            paymentMethod.processPayment(cart.getTotalPrice());
+            System.out.println("Order placed successfully!");
+        } catch (InvalidPaymentException e) {
+            System.out.println(e.getMessage());
         }
-        System.out.println("Total price: $" + cart.getTotalPrice());
-        paymentMethod.processPayment(cart.getTotalPrice());
-        System.out.println("Order placed successfully!");
     }
 }
-

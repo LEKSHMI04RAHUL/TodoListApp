@@ -3,6 +3,9 @@ package com.ust.ecomerce;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     private String name;
     private Cart cart;
@@ -20,17 +23,18 @@ public class Customer {
         return cart;
     }
 
-    public void addToCart(Product product) {
-        cart.addProduct(product);
+    // Method to add product to the customer's cart
+    public void addToCart(Product product, int quantity) {
+        cart.addProduct(product, quantity);
     }
 
-    public void removeFromCart(Product product) {
-        cart.removeProduct(product);
+    // Method to remove product from the customer's cart
+    public void removeFromCart(Product product, int quantity) {
+        cart.removeProduct(product, quantity);
     }
 
     @Override
     public String toString() {
-        return "Customer: " + name;
+        return "Customer{name='" + name + "'}";
     }
 }
-
